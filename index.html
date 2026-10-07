@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paulo Henrique Personal · Studio PH · Ouro Branco/MG</title>
+<meta name="description" content="Paulo Henrique, personal trainer (CREF 049872-G/MG). Treinamento funcional em grupo no Studio PH, consultoria de emagrecimento e ganho de massa e avaliação física completa no PH Performance Lab. Ouro Branco/MG.">
+<meta name="theme-color" content="#0a0c0b">
+<meta property="og:title" content="Paulo Henrique Personal · Studio PH">
+<meta property="og:description" content="Treino pra gente real. Funcional em grupo, consultoria e avaliação física completa em Ouro Branco/MG.">
+<meta property="og:image" content="img/paulo-hero.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;0,900;1,800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/paulo-hero.webp">
+<style>
+:root{
+  --bg:#0a0c0b; --bg2:#111513; --bg3:#181d1a; --line:#25302a;
+  --ink:#eef2ee; --mute:#9aa69e; --g:#79e04f; --g2:#4fbf2c; --paper:#eceee6; --paper-ink:#121512;
+  --r:14px; --pad:20px;
+  --disp:'Barlow Condensed',Impact,sans-serif; --body:'Barlow',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);letter-spacing:.02em}
+.g{color:var(--g)}
+h1,h2,h3{font-family:var(--disp);font-weight:900;line-height:.92;letter-spacing:-.005em;text-transform:uppercase}
+h2{font-size:clamp(42px,11vw,92px)}
+h3{font-size:30px;font-weight:800}
+.tag{display:inline-flex;align-items:center;gap:8px;font:700 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--g)}
+.tag::before{content:"";width:18px;height:2px;background:currentColor}
+section{position:relative}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 22px;border-radius:999px;font:800 18px/1 var(--disp);text-transform:uppercase;letter-spacing:.04em;transition:transform .15s ease,background .15s ease;-webkit-tap-highlight-color:transparent}
+.btn:active{transform:scale(.97)}
+.btn-g{background:var(--g);color:#08100a}
+.btn-g:hover{background:#8ef065}
+.btn-o{border:1.5px solid #3a463f;color:var(--ink)}
+.btn-o:hover{border-color:var(--g);color:var(--g)}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:50;transition:background .2s ease,border-color .2s ease;border-bottom:1px solid transparent}
+.top.s{background:rgba(10,12,11,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo b{font:900 30px/1 var(--disp);letter-spacing:-.02em;position:relative}
+.logo b i{color:var(--g);font-style:normal}
+.logo span{font:600 11px/1.15 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--mute)}
+.nav{display:none;gap:26px;font:600 15px/1 var(--body)}
+.nav a{color:var(--mute);transition:color .15s}
+.nav a:hover{color:var(--ink)}
+.top .btn{min-height:42px;padding:0 16px;font-size:16px}
+
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:flex-end;padding:90px 0 34px;overflow:hidden;isolation:isolate}
+.hero-img{position:absolute;inset:0;z-index:-2}
+.hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pm,30% 12%);opacity:0;transform:scale(1.07);transition:opacity 1.1s ease,transform 6.5s linear;will-change:opacity,transform}
+.hero-img img.on{opacity:1;transform:scale(1)}
+.slides-ui{display:flex;align-items:center;gap:12px;margin-top:22px}
+.slides-ui .bars{display:flex;gap:6px;flex:none}
+.slides-ui button{width:34px;height:22px;padding:9px 0;position:relative;-webkit-tap-highlight-color:transparent}
+.slides-ui button::before,.slides-ui button i{content:"";position:absolute;left:0;top:9px;height:3px;border-radius:2px}
+.slides-ui button::before{right:0;background:rgba(255,255,255,.22)}
+.slides-ui button i{width:0;background:var(--g)}
+.slides-ui button.on i{animation:fill var(--dur,5s) linear forwards}
+.slides-ui button.done i{width:100%}
+.slides-ui span{font:600 11px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:#c7cfc9;transition:opacity .3s}
+@keyframes fill{to{width:100%}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,12,11,.35) 0%,rgba(10,12,11,.05) 26%,rgba(10,12,11,.78) 52%,var(--bg) 86%)}
+.hero h1{font-size:clamp(64px,19vw,168px);line-height:.84}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:block;animation:up .7s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .ln:nth-child(2) span{animation-delay:.08s}
+.hero h1 .ln:nth-child(3) span{animation-delay:.16s}
+@keyframes up{from{transform:translateY(105%)}to{transform:none}}
+.hero .lead{max-width:520px;margin:18px 0 22px;color:#cdd5cf;font-size:17px}
+.hero .lead strong{color:var(--ink);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px}
+.cta-row .btn{flex:1 1 220px}
+.cref{display:flex;flex-wrap:wrap;gap:8px 16px;margin-bottom:16px;font:500 12px/1 var(--mono);color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+.cref em{font-style:normal;color:var(--ink)}
+
+/* heart monitor */
+.hr{position:absolute;right:14px;top:84px;width:128px;background:rgba(10,12,11,.72);border:1px solid #2b3830;border-radius:12px;padding:10px 12px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:fade .6s .5s both}
+.hr .row{display:flex;justify-content:space-between;align-items:center;font:700 10px/1 var(--mono);color:var(--mute);letter-spacing:.08em}
+.hr .dot{width:7px;height:7px;border-radius:50%;background:#ff4d4d;animation:beat .8s infinite}
+.hr .bpm{font:700 28px/1 var(--mono);margin:6px 0 2px;color:var(--ink)}
+.hr .bpm small{font-size:11px;color:var(--mute);margin-left:4px}
+.hr svg{width:100%;height:30px;display:block}
+.hr path{stroke:var(--g);stroke-width:2;fill:none;stroke-dasharray:260;animation:ecg 1.6s linear infinite}
+.hr .zone{display:flex;gap:3px;margin-top:6px}
+.hr .zone i{flex:1;height:4px;border-radius:2px;background:#2a332d}
+.hr .zone i.on{background:var(--g)}
+@keyframes ecg{from{stroke-dashoffset:260}to{stroke-dashoffset:0}}
+@keyframes beat{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.6);opacity:.5}}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ticker */
+.tick{background:var(--g);color:#08100a;overflow:hidden;white-space:nowrap;border-block:1px solid #0a0c0b}
+.tick div{display:inline-flex;gap:28px;padding:12px 0;font:900 22px/1 var(--disp);text-transform:uppercase;animation:mq 22s linear infinite}
+.tick div span::after{content:"✕";margin-left:28px;font-size:14px;vertical-align:3px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ways */
+.ways{padding:84px 0 40px}
+.ways h2{margin:14px 0 10px}
+.ways .intro{color:var(--mute);max-width:560px;margin-bottom:34px}
+.way{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;padding:22px 0;border-top:1px solid var(--line);align-items:start}
+.way:last-child{border-bottom:1px solid var(--line)}
+.way .n{font:700 13px/1 var(--mono);color:var(--g);padding-top:8px}
+.way h3{font-size:clamp(30px,7.5vw,44px)}
+.way p{grid-column:2;color:var(--mute);max-width:560px;margin-top:6px}
+.way a{grid-column:2;margin-top:12px;font:700 13px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink);display:inline-flex;gap:8px;align-items:center}
+.way a:hover{color:var(--g)}
+.way a::after{content:"→";transition:transform .15s}
+.way a:hover::after{transform:translateX(4px)}
+
+/* studio */
+.studio{padding:70px 0 80px}
+.studio-grid{display:grid;gap:28px}
+.quote-big{font:900 clamp(40px,10vw,76px)/.92 var(--disp);text-transform:uppercase}
+.quote-big s{color:#56615a;text-decoration-thickness:4px;text-decoration-color:var(--g)}
+.studio p.t{color:#c7cfc9;margin-top:16px;max-width:520px}
+.feats{display:grid;gap:10px;margin-top:26px}
+.feat{display:flex;gap:14px;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2)}
+.feat svg{flex:none;width:26px;height:26px;color:var(--g);margin-top:2px}
+.feat b{display:block;font-weight:600;color:var(--ink);margin-bottom:2px}
+.feat span{color:var(--mute);font-size:15px}
+.studio-photo{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5}
+.studio-photo img{width:100%;height:100%;object-fit:cover}
+.studio-photo figcaption{position:absolute;left:12px;bottom:12px;font:600 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.06em;background:rgba(10,12,11,.75);padding:7px 10px;border-radius:8px}
+
+/* schedule */
+.sched{margin-top:46px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--bg2)}
+.sched-h{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding:20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.sched-h h3{font-size:34px}
+.sched-h p{color:var(--mute);font-size:14px}
+.days{display:flex;gap:6px;padding:14px 20px 0}
+.days span{flex:1;text-align:center;font:700 12px/1 var(--mono);padding:9px 0;border-radius:8px;background:var(--bg3);color:var(--mute)}
+.days span.on{background:var(--g);color:#08100a}
+.days span.off{opacity:.35;text-decoration:line-through}
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px 20px 22px}
+.slots h4{font:700 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:10px}
+.slots ul{list-style:none;display:grid;gap:6px}
+.slots li{display:flex;justify-content:space-between;align-items:center;font:700 16px/1 var(--mono);padding:11px 12px;border-radius:10px;background:var(--bg3);border:1px solid transparent}
+.slots li small{font-size:11px;color:var(--mute);font-weight:500}
+.slots li.now{border-color:var(--g);color:var(--g)}
+.sched-f{display:flex;flex-direction:column;gap:12px;padding:0 20px 22px}
+.sched-f .note{font-size:14px;color:var(--mute)}
+.sched-f .note b{color:var(--ink);font-weight:600}
+
+/* lab (paper) */
+.lab{background:var(--paper);color:var(--paper-ink);padding:84px 0;overflow:hidden}
+.lab .tag{color:#2f8a12}
+.lab h2{margin:14px 0 6px}
+.lab .hook{font:800 italic clamp(24px,6vw,36px)/1.05 var(--disp);text-transform:uppercase;color:#2f8a12;margin:18px 0 8px}
+.lab .sub{max-width:560px;color:#3b433d}
+.lab-hero{margin:30px 0 0;border-radius:var(--r);overflow:hidden;position:relative}
+.lab-hero img{width:100%}
+.sheet{margin-top:34px;background:#fff;border-radius:18px;border:1px solid #d6dbd2;box-shadow:0 1px 0 #d6dbd2,0 20px 40px -24px rgba(0,0,0,.25);overflow:hidden}
+.sheet-h{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px dashed #cfd5cb;font:700 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:#5d665f}
+.sheet-h b{color:var(--paper-ink)}
+.test{display:grid;grid-template-columns:34px 1fr;gap:2px 12px;padding:16px 18px;border-bottom:1px solid #eceee8;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.test:last-child{border-bottom:0}
+.test .i{font:700 12px/1 var(--mono);color:#2f8a12;padding-top:5px}
+.test .nm{display:flex;justify-content:space-between;align-items:center;gap:10px;font:800 22px/1.05 var(--disp);text-transform:uppercase}
+.test .nm::after{content:"+";font:500 22px/1 var(--mono);color:#7a847c;transition:transform .2s}
+.test.open .nm::after{transform:rotate(45deg)}
+.test .what{grid-column:2;display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease}
+.test.open .what{grid-template-rows:1fr}
+.test .what>div{overflow:hidden;color:#49524b;font-size:15px}
+.test .what p{padding-top:8px}
+.test .bar{height:6px;background:#e7ebe3;border-radius:3px;margin-top:10px;overflow:hidden}
+.test .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#4fbf2c,#79e04f);border-radius:3px;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.test.open .bar i{width:var(--w)}
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:30px}
+.step{background:var(--paper-ink);color:var(--paper);border-radius:var(--r);padding:16px}
+.step b{display:block;font:900 clamp(20px,5.6vw,26px)/1 var(--disp);overflow-wrap:anywhere;text-transform:uppercase;margin:8px 0 4px}
+.step span{font:700 11px/1 var(--mono);color:var(--g)}
+.step p{font-size:14px;color:#aab3ac;line-height:1.4}
+.lab .cta-row{margin-top:28px}
+.lab .btn-o{border-color:#b9c1b5;color:var(--paper-ink)}
+.lab .btn-o:hover{border-color:#2f8a12;color:#2f8a12}
+.lab-quote{margin-top:30px;padding-left:16px;border-left:3px solid #2f8a12;font-size:17px;color:#2b322d;max-width:560px}
+
+/* consultoria */
+.cons{padding:90px 0 70px}
+.cons h2{margin:14px 0 18px}
+.excuses{list-style:none;display:grid;gap:8px;margin:26px 0}
+.excuses li{font:700 clamp(20px,5.4vw,28px)/1.2 var(--disp);text-transform:uppercase;color:#d6ddd8;transition:color .3s .3s}
+.excuses li span{background:linear-gradient(var(--g),var(--g)) no-repeat 0 56%/0% 3px;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .45s cubic-bezier(.6,0,.2,1)}
+.excuses.on li{color:#5c6760}
+.excuses.on li span{background-size:100% 3px}
+.excuses li:nth-child(2) span{transition-delay:.12s}.excuses li:nth-child(3) span{transition-delay:.24s}.excuses li:nth-child(4) span{transition-delay:.36s}.excuses li:nth-child(5) span{transition-delay:.48s}
+.punch{font:900 clamp(44px,12vw,96px)/.9 var(--disp);text-transform:uppercase}
+.cons .t{color:#c7cfc9;max-width:560px;margin-top:18px}
+.plans{display:grid;gap:12px;margin-top:34px}
+.plan{border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--bg2)}
+.plan .k{font:700 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--g)}
+.plan h3{margin:10px 0 8px;font-size:34px}
+.plan p{color:var(--mute);font-size:15px}
+.plan ul{list-style:none;margin-top:14px;display:grid;gap:8px}
+.plan li{display:flex;gap:10px;font-size:15px}
+.plan li::before{content:"";flex:none;width:8px;height:8px;margin-top:8px;background:var(--g);border-radius:2px}
+.cases{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.case{flex:1 1 150px;border:1px dashed #344038;border-radius:var(--r);padding:16px}
+.case b{display:block;font:900 40px/1 var(--disp);color:var(--g)}
+.case span{font-size:14px;color:var(--mute)}
+
+/* story */
+.story{padding:80px 0;background:var(--bg2);border-block:1px solid var(--line)}
+.story h2{margin:14px 0 26px}
+.story-grid{display:grid;gap:22px}
+.story figure{border-radius:var(--r);overflow:hidden;position:relative}
+.story figure img{width:100%;height:100%;object-fit:cover}
+.story figure figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.75));font:600 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.story .pics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.story .pics figure{aspect-ratio:3/4}
+.story blockquote{font:500 19px/1.5 var(--body);color:#dfe5e0}
+.story blockquote p+p{margin-top:14px}
+.story blockquote strong{color:var(--g);font-weight:600}
+.story .sig{margin-top:18px;font:700 12px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--mute)}
+.timeline{list-style:none;margin-top:28px;border-left:2px solid var(--line);display:grid;gap:18px;padding-left:18px}
+.timeline li{position:relative}
+.timeline li::before{content:"";position:absolute;left:-25px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg2);border:2px solid var(--g)}
+.timeline b{display:block;font:800 22px/1.1 var(--disp);text-transform:uppercase}
+.timeline span{color:var(--mute);font-size:15px}
+
+/* community */
+.comm{padding:84px 0 70px}
+.comm h2{margin:14px 0 10px}
+.comm .intro{color:var(--mute);max-width:560px}
+.queima{margin-top:30px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:18px;border-radius:18px;background:linear-gradient(120deg,#16210f,#0f1410);border:1px solid #2c3b23}
+.queima .flame{font:900 52px/1 var(--disp);color:var(--g)}
+.queima b{display:block;font:800 24px/1.05 var(--disp);text-transform:uppercase}
+.queima span{color:var(--mute);font-size:15px}
+
+/* partners */
+.partners{padding:20px 0 80px}
+.partners h3{font-size:clamp(30px,8vw,44px);margin:14px 0 18px}
+.plist{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.plist div{border:1px solid var(--line);border-radius:12px;padding:14px}
+.plist b{display:block;font:800 19px/1.1 var(--disp);text-transform:uppercase}
+.plist span{font-size:13px;color:var(--mute)}
+
+/* faq */
+.faq{padding:0 0 80px}
+.faq h3{font-size:clamp(30px,8vw,44px);margin:14px 0 14px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font-weight:600;font-size:17px;cursor:pointer}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:500 22px/1 var(--mono);color:var(--g);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 18px;color:var(--mute);max-width:640px}
+
+/* contact */
+.contact{padding:84px 0 40px;background:var(--g);color:#08100a}
+.contact h2{font-size:clamp(56px,16vw,140px);line-height:.85}
+.contact .tag{color:#08100a}
+.contact p.l{max-width:520px;margin:18px 0 26px;font-size:17px;font-weight:500}
+.contact .btn-g{background:#08100a;color:var(--g)}
+.contact .btn-g:hover{background:#1a2419}
+.contact .btn-o{border-color:#08100a;color:#08100a}
+.contact .btn-o:hover{background:#08100a;color:var(--g)}
+.cinfo{display:grid;gap:0;margin-top:40px;border-top:2px solid #08100a}
+.cinfo a,.cinfo div{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(8,16,10,.25);font-weight:600}
+.cinfo small{font:700 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;opacity:.7;flex:none}
+.cinfo span{text-align:right}
+.map{margin-top:28px;border-radius:var(--r);overflow:hidden;border:2px solid #08100a;aspect-ratio:16/10;background:#5eb33c}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
+footer{background:#08100a;color:#7f8b83;padding:28px 0 110px;font-size:13px}
+footer .wrap{display:flex;flex-direction:column;gap:10px}
+footer a{color:#c9d1cb}
+footer .dev{font:600 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* mobile dock */
+.dock{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:60;display:flex;gap:8px;padding:8px;border-radius:999px;background:rgba(17,21,19,.92);border:1px solid #2b3830;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:translateY(140%);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.dock.on{transform:none}
+.dock .btn{flex:1;min-height:48px;font-size:16px;padding:0 12px}
+.dock .wa{flex:0 0 48px;padding:0;background:#1e2a22;color:var(--g)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:759px){
+  .hr{top:auto;bottom:34px;right:var(--pad);width:auto;display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px}
+  .hr svg,.hr .zone,.hr .row+.bpm+svg+.row,.hr .row:last-of-type{display:none}
+  .hr .row:first-child span:first-child{display:none}
+  .hr .bpm{font-size:15px;margin:0}
+  .hr .bpm small{font-size:10px}
+  .slides-ui{flex-wrap:wrap;gap:8px}
+  .slides-ui span{order:-1;width:100%}
+}
+@media (min-width:760px){
+  :root{--pad:32px}
+  .nav{display:flex}
+  .hero{align-items:center;padding:110px 0 60px}
+  .hero-img{left:auto;width:58%}
+  .hero-img img{object-position:var(--pd,5% 15%)}
+  .hero::after{background:linear-gradient(90deg,var(--bg) 42%,rgba(10,12,11,.55) 62%,rgba(10,12,11,0) 85%),linear-gradient(0deg,var(--bg) 0%,transparent 22%)}
+  .hero .copy{max-width:640px}
+  .cta-row .btn{flex:0 0 auto}
+  .hr{top:auto;bottom:60px;right:40px;width:190px}
+  .way{grid-template-columns:70px 1fr 1fr;padding:30px 0}
+  .way p{grid-column:3;grid-row:1/3;margin-top:6px}
+  .way a{grid-column:2}
+  .studio-grid{grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+  .slots{grid-template-columns:1fr 1fr;gap:28px}
+  .slots ul{grid-template-columns:1fr 1fr}
+  .sched-f{flex-direction:row;justify-content:space-between;align-items:center}
+  .lab-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .plans{grid-template-columns:1fr 1fr}
+  .story-grid{grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .plist{grid-template-columns:repeat(5,1fr)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end}
+  .map{aspect-ratio:21/8}
+  .dock{display:none}
+  footer{padding-bottom:28px}
+  footer .wrap{flex-direction:row;justify-content:space-between}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a href="#inicio" class="logo" aria-label="Paulo Henrique Personal — início">
+      <b>P<i>H</i></b>
+      <span>Paulo Henrique<br>Personal</span>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#studio">Studio</a>
+      <a href="#lab">PH Lab</a>
+      <a href="#consultoria">Consultoria</a>
+      <a href="#historia">História</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-g" href="https://agendamento.nextfit.com.br/71424301-3c77-4749-88d6-30c7b71f4a30" target="_blank" rel="noopener">Aula grátis</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<section class="hero">
+  <div class="hero-img" id="slides">
+    <img class="on" src="img/paulo-hero.webp" alt="Paulo Henrique sorrindo dentro do Studio PH Treinamento Funcional" width="1175" height="1722" fetchpriority="high" data-cap="Studio PH · Ouro Branco" style="--pm:30% 12%;--pd:5% 15%">
+    <img src="img/slide-aluno.webp" alt="Paulo Henrique com aluno medalhista no Studio PH" width="1205" height="1600" decoding="async" data-cap="Pequenos campeões · medalhas no peito" style="--pm:62% 10%;--pd:50% 20%">
+    <img src="img/slide-podio.webp" alt="Atletas no pódio da Corrida Solidária Sicoob com a bandeira do PH Treinamento Funcional" width="1205" height="1585" decoding="async" data-cap="Bandeira PH no pódio · Corrida Solidária" style="--pm:48% 30%;--pd:50% 40%">
+  </div>
+
+  <div class="hr" aria-hidden="true">
+    <div class="row"><span>FC · AO VIVO</span><span class="dot"></span></div>
+    <div class="bpm"><span id="bpm">142</span><small>bpm</small></div>
+    <svg viewBox="0 0 160 30" preserveAspectRatio="none"><path d="M0 18 H38 L44 18 L48 6 L54 28 L59 12 L63 18 H100 L106 18 L110 4 L116 28 L121 13 L125 18 H160"/></svg>
+    <div class="row" style="margin-top:6px"><span>ZONA</span><span id="zn">3 · QUEIMA</span></div>
+    <div class="zone"><i class="on"></i><i class="on"></i><i class="on" id="z3"></i><i id="z4"></i><i></i></div>
+  </div>
+
+  <div class="wrap">
+    <div class="copy">
+      <div class="cref"><span>CREF <em>049872-G/MG</em></span><span>Ouro Branco · MG</span></div>
+      <h1><span class="ln"><span>Treino</span></span><span class="ln"><span>pra gente</span></span><span class="ln"><span class="g">real.</span></span></h1>
+      <p class="lead">Sou o <strong>Paulo Henrique</strong>, personal trainer. Emagrecimento e ganho de massa muscular <strong>em casa, na academia</strong> ou no meu studio de treinamento funcional — com avaliação de verdade antes de qualquer treino.</p>
+      <div class="cta-row">
+        <a class="btn btn-g" href="https://agendamento.nextfit.com.br/71424301-3c77-4749-88d6-30c7b71f4a30" target="_blank" rel="noopener">Agendar aula experimental grátis</a>
+        <a class="btn btn-o" href="https://api.whatsapp.com/send?phone=5531975159806&text=Ol%C3%A1%20Paulo!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20os%20treinos." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+      <div class="slides-ui" aria-label="Fotos do topo">
+        <div class="bars" id="bars"><button type="button" class="on" aria-label="Foto 1"><i></i></button><button type="button" aria-label="Foto 2"><i></i></button><button type="button" aria-label="Foto 3"><i></i></button></div>
+        <span id="cap">Studio PH · Ouro Branco</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tick" aria-hidden="true"><div>
+  <span>Treinamento funcional</span><span>Emagrecimento</span><span>Ganho de massa</span><span>Avaliação física completa</span><span>Consultoria</span><span>Corrida</span>
+  <span>Treinamento funcional</span><span>Emagrecimento</span><span>Ganho de massa</span><span>Avaliação física completa</span><span>Consultoria</span><span>Corrida</span>
+</div></div>
+
+<section class="ways">
+  <div class="wrap">
+    <span class="tag rv">Como treinar comigo</span>
+    <h2 class="rv">Três caminhos.<br><span class="g">Um método.</span></h2>
+    <p class="intro rv">Seja no studio, na sua casa ou na sua academia, tudo começa do mesmo jeito: entender onde você está antes de decidir para onde ir.</p>
+
+    <div class="way rv">
+      <span class="n">01</span><h3>Studio PH<br>Funcional</h3>
+      <p>Aulas em grupo de 45 minutos, com monitoramento da frequência cardíaca em tempo real. Cada aluno treina na intensidade certa para o próprio objetivo.</p>
+      <a href="#studio">Ver horários</a>
+    </div>
+    <div class="way rv">
+      <span class="n">02</span><h3>PH<br>Performance Lab</h3>
+      <p>Avaliação física completa: composição corporal, força, assimetrias, postura, flexibilidade, VO₂ e saúde cardiovascular. Seu corpo em dados, seu treino em estratégia.</p>
+      <a href="#lab">Conhecer a avaliação</a>
+    </div>
+    <div class="way rv">
+      <span class="n">03</span><h3>Consultoria<br>em casa ou academia</h3>
+      <p>Treino individualizado para emagrecer ou ganhar massa, com acompanhamento de perto. Para quem leva o objetivo a sério — onde quer que treine.</p>
+      <a href="#consultoria">Como funciona</a>
+    </div>
+  </div>
+</section>
+
+<section class="studio" id="studio">
+  <div class="wrap">
+    <div class="studio-grid">
+      <div>
+        <span class="tag rv">Studio de Treinamento Funcional PH</span>
+        <p class="quote-big rv" style="margin-top:14px">Nós <s>não</s> somos uma academia <span class="g">tradicional.</span></p>
+        <p class="t rv">Treinos em grupo que integram capacidade física e motora para melhorar sua saúde física e mental. Aqui o cuidado vai além do treino: exercício, gestão emocional e convívio, com acompanhamento de perto — do iniciante ao atleta.</p>
+
+        <div class="feats">
+          <div class="feat rv">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg>
+            <div><b>Frequência cardíaca ao vivo</b><span>Você acompanha intensidade e gasto calórico na tela, durante a aula. Treino gameficado e preciso.</span></div>
+          </div>
+          <div class="feat rv">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/></svg>
+            <div><b>Turmas pequenas, olho em cada um</b><span>Ambiente exclusivo, para pessoas reais. Ninguém fica perdido no canto.</span></div>
+          </div>
+          <div class="feat rv">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"/></svg>
+            <div><b>Cuidado integrado</b><span>Fortalecimento, mobilidade e prevenção de lesões no centro de tudo. Ações como o bate-papo do Setembro Amarelo fazem parte da rotina.</span></div>
+          </div>
+        </div>
+      </div>
+      <figure class="studio-photo rv">
+        <img src="img/paulo-lab.webp" alt="Paulo Henrique com dinamômetro e equipamentos de avaliação" width="595" height="1135" loading="lazy" style="object-position:50% 15%">
+        <figcaption>Tecnologia no acompanhamento</figcaption>
+      </figure>
+    </div>
+
+    <div class="sched rv" id="horarios">
+      <div class="sched-h">
+        <div><span class="tag">Grade de aulas</span><h3 style="margin-top:10px">Horários</h3></div>
+        <p>Aulas de 45 min · segunda a sexta</p>
+      </div>
+      <div class="days" id="days"><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span class="off">SÁB</span><span class="off">DOM</span></div>
+      <div class="slots">
+        <div>
+          <h4>Manhã</h4>
+          <ul data-slots>
+            <li data-t="06:00-06:45">06:00 <small>06:45</small></li>
+            <li data-t="06:45-07:30">06:45 <small>07:30</small></li>
+            <li data-t="07:30-08:15">07:30 <small>08:15</small></li>
+            <li data-t="08:15-09:00">08:15 <small>09:00</small></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Tarde / Noite</h4>
+          <ul data-slots>
+            <li data-t="17:00-17:45">17:00 <small>17:45</small></li>
+            <li data-t="18:00-18:45">18:00 <small>18:45</small></li>
+            <li data-t="19:00-19:45">19:00 <small>19:45</small></li>
+            <li data-t="20:00-20:45">20:00 <small>20:45</small></li>
+          </ul>
+        </div>
+      </div>
+      <div class="sched-f">
+        <p class="note"><b>Primeira aula é por nossa conta.</b> Escolha o dia e o horário na agenda online — leva menos de um minuto.</p>
+        <a class="btn btn-g" href="https://agendamento.nextfit.com.br/71424301-3c77-4749-88d6-30c7b71f4a30" target="_blank" rel="noopener">Escolher meu horário</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lab" id="lab">
+  <div class="wrap">
+    <div class="lab-wrap">
+      <div>
+        <span class="tag rv">PH Performance Lab</span>
+        <h2 class="rv">Onde dados viram resultado.</h2>
+        <p class="hook rv">“Avaliação de rico em bairro de pobre.”</p>
+        <p class="sub rv">Brincadeira à parte: você não precisa ir a uma clínica caríssima para ter uma avaliação de alto nível. No PH Lab, a bioimpedância é só o começo — cada teste vira informação para decidir o seu treino.</p>
+        <figure class="lab-hero rv"><img src="img/paulo-avaliacao.webp" alt="Paulo Henrique na mesa de avaliação do PH Performance Lab com os equipamentos" width="820" height="485" loading="lazy"></figure>
+      </div>
+
+      <div>
+        <div class="sheet rv" id="sheet">
+          <div class="sheet-h"><span>Ficha de avaliação · <b>PH Lab</b></span><span>Toque para abrir</span></div>
+          <div class="test open" style="--w:92%"><span class="i">01</span><div class="nm">Bioimpedância</div><div class="what"><div><p>Peso, percentual de gordura, massa muscular e outros indicadores de composição corporal. Porque perder peso é diferente de perder gordura.</p><div class="bar"><i></i></div></div></div></div>
+          <div class="test" style="--w:78%"><span class="i">02</span><div class="nm">Força + assimetria muscular</div><div class="what"><div><p>Dinamômetro e balança de carga mostram o que a bioimpedância não mostra: quanto você produz de força e se um lado compensa o outro.</p><div class="bar"><i></i></div></div></div></div>
+          <div class="test" style="--w:84%"><span class="i">03</span><div class="nm">VO₂ máximo</div><div class="what"><div><p>Teste cardiorrespiratório para saber de verdade como está o seu condicionamento — e definir as zonas certas de treino.</p><div class="bar"><i></i></div></div></div></div>
+          <div class="test" style="--w:66%"><span class="i">04</span><div class="nm">Avaliação postural</div><div class="what"><div><p>Escoliômetro para mais precisão na leitura de desvios da coluna e desequilíbrios posturais.</p><div class="bar"><i></i></div></div></div></div>
+          <div class="test" style="--w:58%"><span class="i">05</span><div class="nm">Flexibilidade · Banco de Wells</div><div class="what"><div><p>Mede mobilidade e encurtamento da cadeia posterior, que costumam estar por trás de dores e travas.</p><div class="bar"><i></i></div></div></div></div>
+          <div class="test" style="--w:72%"><span class="i">06</span><div class="nm">Plicômetro e fita métrica</div><div class="what"><div><p>Dobras cutâneas e perímetros para acompanhar a evolução de cada região do corpo, medida a medida.</p><div class="bar"><i></i></div></div></div></div>
+          <div class="test" style="--w:88%"><span class="i">07</span><div class="nm">Coração em dia</div><div class="what"><div><p>Eletrocardiograma, pressão arterial e oximetria para treinar com segurança — principalmente quem está voltando ou começando.</p><div class="bar"><i></i></div></div></div></div>
+        </div>
+
+        <div class="steps">
+          <div class="step rv"><span>01</span><b>Avaliar</b><p>Medir tudo o que importa.</p></div>
+          <div class="step rv"><span>02</span><b>Identificar</b><p>Achar o que trava o seu resultado.</p></div>
+          <div class="step rv"><span>03</span><b>Planejar</b><p>Treino feito para os seus dados.</p></div>
+          <div class="step rv"><span>04</span><b>Acompanhar</b><p>Reavaliar e ver a evolução.</p></div>
+        </div>
+
+        <p class="lab-quote rv">Treinar sem avaliar é como tentar chegar a um destino sem saber exatamente onde você está.</p>
+
+        <div class="cta-row rv">
+          <a class="btn btn-g" style="background:var(--paper-ink);color:var(--g)" href="https://wa.me/message/7ZFKE7E4H6YMA1" target="_blank" rel="noopener">Agendar minha avaliação</a>
+          <a class="btn btn-o" href="https://www.instagram.com/ph_performancelab/" target="_blank" rel="noopener">@ph_performancelab</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cons" id="consultoria">
+  <div class="wrap">
+    <span class="tag rv">Consultoria · em casa ou na academia</span>
+    <h2 class="rv">Vou ser sincero.</h2>
+    <p class="t rv" style="margin-top:0">Não importa de onde você está começando, a idade, o tempo parado ou o medo do espelho. O que importa é o tamanho da sua vontade. Agora, as frases de sempre:</p>
+    <ul class="excuses" id="excuses">
+      <li><span>“Ai Paulo, minha rotina tá muito corrida”</span></li>
+      <li><span>“Vou esperar um pouco, depois eu vejo”</span></li>
+      <li><span>“Mas ela tem rede de apoio”</span></li>
+      <li><span>“Eu só recebo dia tal”</span></li>
+      <li><span>“Mas ela tem dinheiro”</span></li>
+    </ul>
+    <p class="punch rv">Isso é PH.<br><span class="g">É diferente.</span></p>
+    <p class="t rv">Eu sei exatamente como te guiar e te entregar resultado. Só não posso caminhar por você. Por isso trabalho com quem está comprometido de verdade.</p>
+
+    <div class="plans">
+      <div class="plan rv">
+        <span class="k">Objetivo</span>
+        <h3>Emagrecimento</h3>
+        <p>Perder gordura, não só peso. Estratégia baseada na sua composição corporal, com metas que dá para medir.</p>
+        <ul><li>Treino montado para sua rotina e seu local de treino</li><li>Ajustes conforme a evolução nas reavaliações</li><li>Acompanhamento direto comigo</li></ul>
+      </div>
+      <div class="plan rv">
+        <span class="k">Objetivo</span>
+        <h3>Ganho de massa</h3>
+        <p>Hipertrofia com execução certa — uma pequena mudança no movimento muda o músculo que trabalha.</p>
+        <ul><li>Progressão de carga planejada</li><li>Correção de técnica e assimetrias</li><li>Em casa, na academia ou no studio</li></ul>
+      </div>
+    </div>
+
+    <div class="cases rv">
+      <div class="case"><b>6 meses</b><span>de consultoria com a aluna @marymeell_</span></div>
+      <div class="case"><b>4 meses</b><span>de consultoria: “treinava” × treino certo</span></div>
+      <div class="case"><b>14,1 mil</b><span>pessoas acompanhando o trabalho no Instagram</span></div>
+    </div>
+    <div class="cta-row rv" style="margin-top:26px">
+      <a class="btn btn-g" href="https://api.whatsapp.com/send?phone=5531975159806&text=Ol%C3%A1%20Paulo!%20Quero%20conhecer%20sua%20consultoria%20e%20analisar%20meu%20caso." target="_blank" rel="noopener">Quero analisar meu caso</a>
+      <a class="btn btn-o" href="https://www.instagram.com/paulo_henriquepersonal/" target="_blank" rel="noopener">Ver resultados no Instagram</a>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="historia">
+  <div class="wrap">
+    <span class="tag rv">Quem está por trás</span>
+    <h2 class="rv">Nada foi<br>construído <span class="g">por acaso.</span></h2>
+    <div class="story-grid">
+      <div class="pics">
+        <figure class="rv"><img src="img/paulo-construindo.webp" alt="Paulo Henrique pintando a parede do PH Lab" width="640" height="1135" loading="lazy"><figcaption>Pintando o PH Lab com as próprias mãos</figcaption></figure>
+        <figure class="rv"><img src="img/paulo-corrida.webp" alt="Paulo Henrique correndo uma prova de rua" width="720" height="720" loading="lazy"><figcaption>De volta às provas depois da lesão</figcaption></figure>
+      </div>
+      <div>
+        <blockquote class="rv">
+          <p>Antes de existir o PH Lab, existia um sonho. E antes do sonho virar realidade, existiram trabalho, dúvidas, noites pensando e <strong>mãos sujas de tinta</strong>.</p>
+          <p>Depois de uma lesão séria, foi dentro do meu próprio studio que eu fiz meu fortalecimento e voltei a correr. <strong>O mesmo lugar onde eu me fortaleci é onde ajudo outras pessoas a se fortalecerem todos os dias.</strong></p>
+          <p>Eu amo o que faço. E cada aluno que entra pela porta carrega uma história que ninguém vê.</p>
+        </blockquote>
+        <p class="sig">— Paulo Henrique · CREF 049872-G/MG</p>
+        <ul class="timeline">
+          <li class="rv"><b>Studio PH Funcional</b><span>Treinamento em grupo para pessoas reais, em Ouro Branco.</span></li>
+          <li class="rv"><b>Consultoria</b><span>Alunas e alunos treinando em casa ou na academia, com acompanhamento.</span></li>
+          <li class="rv"><b>PH Performance Lab</b><span>Agenda aberta desde 21/09: avaliação completa e tecnologia.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="comm">
+  <div class="wrap">
+    <span class="tag rv">Seguimos acreditando nos atletas</span>
+    <h2 class="rv">Bandeira PH<br><span class="g">no pódio.</span></h2>
+    <p class="intro rv">Cada conquista começa com alguém que decidiu acreditar, treinar e não desistir. Dos pequenos campeões aos corredores de rua.</p>
+
+    <div class="queima rv">
+      <span class="flame">2.0</span>
+      <div><b>Desafio Queima Diária</b><span>Ranking, disciplina e superação dentro do studio — com pódio e premiação para quem se dedica.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="partners">
+  <div class="wrap">
+    <span class="tag rv">Parceria que te leva mais longe</span>
+    <h3 class="rv">Rede de cuidado</h3>
+    <div class="plist rv">
+      <div><b>Diogo Garcia</b><span>Nutricionista</span></div>
+      <div><b>MOVV</b><span>Fisioterapia</span></div>
+      <div><b>Ane Félix</b><span>Massoterapeuta</span></div>
+      <div><b>Mahamudra</b><span>Endurance</span></div>
+      <div><b>Corre 031</b><span>Corrida de rua</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <span class="tag rv">Antes de vir</span>
+    <h3 class="rv">Perguntas rápidas</h3>
+    <div class="rv">
+      <details><summary>A aula experimental é grátis mesmo?</summary><p>Sim. Você escolhe uma data e um horário na agenda online. O agendamento é para uma pessoa e vale para uma data.</p></details>
+      <details><summary>Nunca treinei. Consigo acompanhar?</summary><p>Consegue. O studio é para pessoas reais e cada um treina na própria intensidade — a frequência cardíaca monitorada mostra o ritmo certo para você.</p></details>
+      <details><summary>O que levar na primeira aula?</summary><p>Venha com roupa confortável, tenha uma boa alimentação antes e beba bastante água.</p></details>
+      <details><summary>Não moro em Ouro Branco. Posso treinar com o Paulo?</summary><p>Pode. A consultoria funciona com treino em casa ou na sua academia. Chame no WhatsApp para analisarmos seu caso.</p></details>
+      <details><summary>Preciso fazer a avaliação do PH Lab para treinar?</summary><p>Não é obrigatório, mas é o que transforma palpite em estratégia. Com os dados em mãos, o treino fica mais individualizado, seguro e eficiente.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <span class="tag">Sua vez</span>
+        <h2 style="margin-top:14px">Agora é<br>com você.</h2>
+        <p class="l">Marque sua aula experimental gratuita no Studio PH ou chame no WhatsApp para consultoria e avaliação.</p>
+        <div class="cta-row">
+          <a class="btn btn-g" href="https://agendamento.nextfit.com.br/71424301-3c77-4749-88d6-30c7b71f4a30" target="_blank" rel="noopener">Agendar aula grátis</a>
+          <a class="btn btn-o" href="https://api.whatsapp.com/send?phone=5531975159806&text=Ol%C3%A1%20Paulo!%20Vim%20pelo%20site." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div>
+        <div class="cinfo">
+          <a href="https://api.whatsapp.com/send?phone=5531975159806" target="_blank" rel="noopener"><small>WhatsApp</small><span>(31) 97515-9806</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Rua+Ant%C3%B4nio+Raposo+Tavares%2C+382%2C+Bandeirantes%2C+Ouro+Branco+MG" target="_blank" rel="noopener"><small>Studio</small><span>R. Antônio Raposo Tavares, 382<br>Bandeirantes · Ouro Branco/MG</span></a>
+          <a href="https://www.instagram.com/paulo_henriquepersonal/" target="_blank" rel="noopener"><small>Instagram</small><span>@paulo_henriquepersonal</span></a>
+          <a href="https://www.instagram.com/ph_treinamentofuncional/" target="_blank" rel="noopener"><small>Studio</small><span>@ph_treinamentofuncional</span></a>
+          <a href="https://www.instagram.com/ph_performancelab/" target="_blank" rel="noopener"><small>Lab</small><span>@ph_performancelab</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="map" id="map" data-src="https://www.google.com/maps?q=Rua+Ant%C3%B4nio+Raposo+Tavares,+382,+Bandeirantes,+Ouro+Branco+-+MG&output=embed"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="y">2026</span> Paulo Henrique Personal · Studio de Treinamento Funcional PH · PH Performance Lab</span>
+    <span class="dev">Site por <a href="https://www.instagram.com/anderson.fsfs/" target="_blank" rel="noopener">AndersonDev</a></span>
+  </div>
+</footer>
+
+<div class="dock" id="dock">
+  <a class="btn btn-g" href="https://agendamento.nextfit.com.br/71424301-3c77-4749-88d6-30c7b71f4a30" target="_blank" rel="noopener">Aula grátis</a>
+  <a class="btn wa" href="https://api.whatsapp.com/send?phone=5531975159806&text=Ol%C3%A1%20Paulo!%20Vim%20pelo%20site." target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+  </a>
+</div>
+
+<script>
+(()=>{
+  const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+  const top=$('#top'), dock=$('#dock');
+  const onScroll=()=>{const y=scrollY;top.classList.toggle('s',y>20);dock.classList.toggle('on',y>innerHeight*.7)};
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // reveal
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+  $$('.rv').forEach(el=>io.observe(el));
+
+  // excuses strike
+  const ex=$('#excuses');
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){setTimeout(()=>ex.classList.add('on'),250);o.disconnect()}}),{threshold:.6}).observe(ex);
+
+  // heart rate
+  const bpm=$('#bpm'), zn=$('#zn'), z4=$('#z4');
+  let v=142;
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(()=>{
+    v=Math.max(128,Math.min(171,v+Math.round((Math.random()-.45)*6)));
+    bpm.textContent=v; const hi=v>=155; z4.classList.toggle('on',hi); zn.textContent=hi?'4 · FORTE':'3 · QUEIMA';
+  },1100);
+
+  // lab sheet accordion
+  $$('#sheet .test').forEach(t=>t.addEventListener('click',()=>{
+    const was=t.classList.contains('open'); $$('#sheet .test').forEach(x=>x.classList.remove('open')); if(!was) t.classList.add('open');
+  }));
+
+  // schedule: today + next class (Fortaleza ~ Brasília time, UTC-3)
+  const now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Sao_Paulo'}));
+  const d=now.getDay(); const map=[6,0,1,2,3,4,5];
+  const ds=$$('#days span'); if(ds[map[d]]) ds[map[d]].classList.add('on');
+  if(d>=1&&d<=5){
+    const m=now.getHours()*60+now.getMinutes();
+    const next=$$('[data-slots] li').find(li=>{const [a,b]=li.dataset.t.split('-').map(t=>{const [h,mm]=t.split(':');return +h*60+ +mm});return m<b});
+    if(next){next.classList.add('now');next.querySelector('small').textContent=(m>= (+next.dataset.t.slice(0,2)*60+ +next.dataset.t.slice(3,5)))?'agora':'próxima'}
+  }
+
+  // lazy map
+  const mp=$('#map');
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){mp.innerHTML=`<iframe src="${mp.dataset.src}" loading="lazy" title="Mapa do Studio PH em Ouro Branco" referrerpolicy="no-referrer-when-downgrade"></iframe>`;o.disconnect()}}),{rootMargin:'300px'}).observe(mp);
+
+  // hero slideshow
+  const sl=$$('#slides img'), bars=$$('#bars button'), cap=$('#cap'), DUR=5000;
+  let cur=0, tmr;
+  const go=n=>{
+    sl[cur].classList.remove('on'); cur=(n+sl.length)%sl.length; sl[cur].classList.add('on');
+    bars.forEach((b,i)=>{b.classList.remove('on','done'); if(i<cur) b.classList.add('done')});
+    void bars[cur].offsetWidth; bars[cur].classList.add('on');
+    cap.textContent=sl[cur].dataset.cap;
+    clearTimeout(tmr); tmr=setTimeout(()=>go(cur+1),DUR);
+  };
+  bars.forEach((b,i)=>b.addEventListener('click',()=>go(i)));
+  document.documentElement.style.setProperty('--dur',DUR+'ms');
+  // load the other slides after the first paints, so the page opens fast
+  addEventListener('load',()=>{tmr=setTimeout(()=>go(1),DUR)});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden) clearTimeout(tmr); else {clearTimeout(tmr); go(cur)}});
+
+  $('#y').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
